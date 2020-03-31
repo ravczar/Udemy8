@@ -1,0 +1,43 @@
+<!-- UDEMY ASSIGNMENT 8
+  
+  1) 
+  Subject:  Build a reverse Pipe that reverse a String.
+  Hint:     There is a reverse method that you can use in JS, 
+            but it works only on real arrays, not on a String.
+  How:      Slit the string by an empty char first and then 
+            join it together with an empty char to get a String again.
+  2)
+  Subject:  Build a sort pipe that will sort the list by a name of a server.
+
+-->
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <label for="filterInput">Input: </label> 
+      <input name="filterInput" type="text" [(ngModel)]="filteredStatus">
+      <p [innerText]="'Your text:' + filteredStatus"></p>
+      <br>
+      <button class="brn btn-primary" (click)="onAddServer()">Add Server</button>
+      <br><br>
+      <h2>App Status: {{ appStatus | async }} </h2> <!-- Async pipe, promise returns data after 2 sec-->
+
+      <hr>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let server of servers | filter:filteredStatus:'status'"
+          [ngClass]="getStatusClasses(server)">
+          <span
+            class="badge">
+            {{ server.status | extra }}
+          </span>
+          <strong>{{ server.name | shorten:16:"..." }}</strong> | 
+                  {{ server.instanceType | uppercase }} | 
+                  {{ server.started | date:'fullDate' | uppercase}}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

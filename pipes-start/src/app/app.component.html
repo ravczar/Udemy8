@@ -1,5 +1,5 @@
 <!-- UDEMY ASSIGNMENT 8
-  
+
   1) 
   Subject:  Build a reverse Pipe that reverse a String.
   Hint:     There is a reverse method that you can use in JS, 
@@ -21,7 +21,7 @@
       <br>
       <button class="brn btn-primary" (click)="onAddServer()">Add Server</button>
       <br><br>
-      <h2>App Status: {{ appStatus | async }} </h2> <!-- Async pipe, promise returns data after 2 sec-->
+      <h2>App Status: {{ appStatus | async | reverse }} </h2> <!-- Async pipe, promise returns data after 2 sec-->
 
       <hr>
       <ul class="list-group">
